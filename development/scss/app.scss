@@ -1,0 +1,110 @@
+@import "variables";
+
+.app-body {
+  display:flex;
+  flex-direction: column;
+  margin:0;
+  padding:0;
+}
+
+.app-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $colorHeader;
+  border: 1px solid black;
+}
+
+.header-logo {
+  font-family: 'Charmonman', cursive;
+font-size: 35px;
+  margin: 20px;
+}
+
+.logo1 {
+  color:white;
+}
+
+.logo2 {
+  color:#E58A20;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-right-name {
+  font-family: 'Open Sans', sans-serif;
+  color:white;
+  font-size: 38px;
+  font-weight: 700;
+  margin:15px;
+}
+
+.header-right-icon {
+  color :#E58A20;
+  font-size: 50px;
+  margin-right: 50px;
+  margin-left: 20px;
+}
+
+.main{
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 17%;
+  height: 100%;
+  background-color:$colorSidebar;
+}
+
+.sidebar-nav {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav-item {
+  width: 100%;
+}
+
+.sidebar-nav-item button{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $colorSidebar;
+  border: none;
+  padding:25px 15px 25px 35px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.sidebar-nav-item button span {
+  font-family: "Open Sans", sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+.sidebar-nav-item button i {
+  font-size: 30px;
+  color: #E58A20;
+  display: none;
+}
+
+.main-content {
+  width: 83%;
+  height: 100vh;
+  background-image: url("../images/tlo.png");
+}
+
+.border {
+  border-left:5px solid #E58A20 !important;
+}
+
+.arrow {
+  display: block !important;
+}
+
