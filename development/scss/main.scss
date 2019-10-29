@@ -13,4 +13,49 @@ body{
   font-size: 14px;
 }
 
+/* 1.1 Naglowek poczatek */
 
+@import url('https://fonts.googleapis.com/css?family=Charmonman');
+h1{
+  font-family: Charmonman;
+}
+body{
+  background-color: #292F32;
+}
+.main_header{
+  display: flex;
+  justify-content: space-between;
+}
+.bottom_menu{
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.menu_links{
+  font-size: 1.5em;
+  padding: 1em;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.first_link{
+  color: #E58A20;
+}
+
+.logo_whole{
+  font-size: 2em;
+  text-decoration: none;
+}
+.logo_first_part{
+  font-weight:100;
+  color: white;
+}
+.logo_second_part{
+  color:#E58A20;
+  font-weight: 700;
+}
+
+
+
+/* 1.1 Naglowek koniec  */
