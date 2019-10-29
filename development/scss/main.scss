@@ -10,6 +10,7 @@
 body {
   background-color: #ebebeb;
   font-size: 14px;
+}
 
 * {
   margin: 0;
@@ -27,8 +28,11 @@ h1{
 .main_header{
   display: flex;
   justify-content: space-between;
+  background-color:#4a4a49;
+
 }
 .bottom_menu{
+  font-family: "Open Sans", sans-serif;
   list-style-type: none;
   display: flex;
   align-items: center;
@@ -125,6 +129,7 @@ h1{
 }
 
 .story {
+  font-family: "Open Sans", sans-serif;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -151,17 +156,22 @@ footer {
   justify-content: center;
 }
 
+
+
 .info {
   display: flex;
   flex-direction: column;
   margin: 30px;
 
   p {
+    font-family: "Open Sans", sans-serif;
+
     max-width: 300px;
   }
 }
 
 .list {
+  font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
   margin: 30px;
