@@ -60,8 +60,85 @@ h1{
 .logo_second_part{
   color:#E58A20;
   font-weight: 700;
-
 }
+/* 1.1 Naglowek koniec  */
+
+/*1.2 Karuzela poczatek */
+
+.carousel {
+  height: 580px;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #fffffa;
+
+  .carousel_container {
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+
+    .carousel_bnt {
+      height: 100%;
+      flex: 0 0 auto;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      .carousel_bnt_sign {
+        flex: 0 0 auto;
+        display: inline-block;
+        text-decoration: none;
+        font-size: 2.3rem;
+        font-weight: 600;
+        color: #000000;
+      }
+    }
+    .carousel_screen {
+      max-height: 100%;
+      flex: 1 1 auto;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: stretch;
+      align-items: stretch;
+      align-content: stretch;
+
+      .carousel_screen_element {
+        max-height: 100%;
+        flex: 1 1 auto;
+        display: none;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        &.visible{
+          display: flex;
+        }
+
+        h4 {
+          font-size: 2.6rem;
+          font-weight: 600;
+          margin-bottom: 0.25em;
+          text-align: center;
+          flex: 0 0 66%;
+        }
+
+        p {
+          overflow: hidden;
+          font-weight: 400;
+          text-align: center;
+          flex: 0 0 66%;
+        }
+      }
+    }
+  }
+}
+
+/*1.2 Karuzela koniec */
 
 /* 1.3 Call to Action  */
 .call-to-action {
@@ -233,7 +310,6 @@ h1{
   color: #A1A193;
 }
 
-/* 1.1 Naglowek koniec  */
 .about {
   display: flex;
   justify-content: center;
