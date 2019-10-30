@@ -44,7 +44,7 @@ if (localStorage.getItem("savedName")!==null) {
     document.querySelector(".new-guest-content").classList.toggle("display-none");
     document.querySelector(".header-right-name").innerText=localStorage.getItem("savedName");
 } else {
-    document.querySelector(".task3-content").classList.remove("display-none");
+    document.querySelector(".task3-content").classList.add("display-none");
 }
 
 
