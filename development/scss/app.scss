@@ -1,17 +1,16 @@
 @import "variables";
 
-
 // początek sekcji głównej....................................................................................
 //..............................................................................................................
 
 .app-body {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
-.app-header{
+.app-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,21 +19,21 @@
 }
 
 .header-logo {
-  font-family: 'Charmonman', cursive;
-font-size: 35px;
+  font-family: "Charmonman", cursive;
+  font-size: 35px;
   margin: 20px;
 }
 
-.logo-link{
+.logo-link {
   text-decoration: none;
 }
 
 .logo1 {
-  color:white;
+  color: white;
 }
 
 .logo2 {
-  color:#E58A20;
+  color: #e58a20;
 }
 
 .header-right {
@@ -43,21 +42,21 @@ font-size: 35px;
 }
 
 .header-right-name {
-  font-family: 'Open Sans', sans-serif;
-  color:white;
+  font-family: "Open Sans", sans-serif;
+  color: white;
   font-size: 38px;
   font-weight: 700;
-  margin:15px;
+  margin: 15px;
 }
 
 .header-right-icon {
-  color :#E58A20 !important;
+  color: #e58a20 !important;
   font-size: 50px;
   margin-right: 50px;
   margin-left: 20px;
 }
 
-.main{
+.main {
   display: flex;
   height: calc(100vh - 100px);
 }
@@ -65,7 +64,7 @@ font-size: 35px;
 .sidebar {
   width: 17%;
   height: 100%;
-  background-color:$colorSidebar;
+  background-color: $colorSidebar;
 }
 
 .sidebar-nav {
@@ -79,13 +78,13 @@ font-size: 35px;
   width: 100%;
 }
 
-.sidebar-nav-item button{
+.sidebar-nav-item button {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: $colorSidebar;
   border: none;
-  padding:25px 15px 25px 35px;
+  padding: 25px 15px 25px 35px;
   width: 100%;
   cursor: pointer;
 }
@@ -98,18 +97,18 @@ font-size: 35px;
 
 .sidebar-nav-item button i {
   font-size: 30px;
-  color: #E58A20;
+  color: #e58a20;
   display: none;
 }
 
 .main-content {
   width: 83%;
-  height:calc(100vh - 100px);
+  height: calc(100vh - 100px);
   background-image: url("../images/tlo.png");
 }
 
 .border {
-  border-left:5px solid #E58A20 !important;
+  border-left: 5px solid #e58a20 !important;
   font-weight: 700 !important;
 }
 
@@ -117,7 +116,7 @@ font-size: 35px;
   display: block !important;
 }
 
- /* początek sekcji nowy aplikant..............................................................................
+/* początek sekcji nowy aplikant..............................................................................
 .............................................................................................................*/
 
 .new-guest-content {
@@ -125,9 +124,9 @@ font-size: 35px;
   font-family: "Open Sans", sans-serif;
   margin: 40px auto 0;
   background-color: white;
-  border:1px dashed $colorSidebar;
-  width:96%;
-  height:90%;
+  border: 1px dashed $colorSidebar;
+  width: 96%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,22 +136,21 @@ font-size: 35px;
   font-size: 50px;
   padding-top: 70px;
   padding-bottom: 0;
-  margin:0;
+  margin: 0;
 }
 
 .new-guest-text {
   font-weight: 700;
   text-align: center;
   width: 35%;
-  font-size:30px;
+  font-size: 30px;
   padding: 20px;
 }
 
 .new-guest-text2 {
-
   text-align: center;
   width: 40%;
-  font-size:28px;
+  font-size: 28px;
   padding: 20px;
 }
 
@@ -171,13 +169,13 @@ font-size: 35px;
 
 .guest-name-add {
   width: 50%;
-  background-color: #E58A20 ;
+  background-color: #e58a20;
   color: white;
   font-weight: bold;
   font-size: 30px;
-  padding:10px 25px;
-  border:none;
-  margin-top:20px;
+  padding: 10px 25px;
+  border: none;
+  margin-top: 20px;
   &:hover {
     cursor: pointer;
   }
@@ -194,8 +192,188 @@ początek sekcji zadania 3......................................................
 
 .task3-content {
   margin: 40px auto 0;
+  width: 96%;
+  height: 90%;
+}
+
+.add {
+  display: flex;
+  width: 40%;
+  float: right;
+}
+.addRecipeImg {
+  width: 198px;
+  height: 177px;
+  margin-right: 10px;
+}
+
+
+/*
+początek sekcji nowy przepis...................................................
+.............................................................................
+*/
+
+
+.add-recipe {
+  color: $colorSidebar;
+  font-family: "Open Sans", sans-serif;
+  margin: 40px auto 0;
+  background-color: white;
+  border:1px dashed $colorSidebar;
   width:96%;
   height:90%;
-
+  padding:40px;
 
 }
+
+.recipe-header {
+  border-bottom: 2px solid $colorSidebar;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .recipe-title {
+    font-family: "Open Sans", sans-serif;
+    font-size: 35px;
+    color: #E58A20;
+    margin-bottom: 10px;
+  }
+  .recipe-button {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    border: none;
+    color:white;
+    background-color: #E58A20;
+    padding-left:20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.recipe-form {
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  .recipe-name {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 80px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    input {
+      color:$colorSidebar;
+      font-size: 16px;
+      padding: 5px;
+      width: 70%;
+
+    }
+  }
+  .recipe-text {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 80px;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    textarea {
+      color:$colorSidebar;
+      padding: 5px;
+      font-size: 16px;
+    }
+  }
+}
+
+.instructions-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.instructions-title {
+  font-size: 35px;
+  font-weight: normal;
+  display: block;
+  padding: 5px 5px 5px 0;
+  border-bottom: 2px solid $colorSidebar;
+}
+
+.instructions,
+.components {
+  position: relative;
+  width: 47%;
+  display:flex;
+  flex-direction: column;
+}
+
+.add-instruction {
+  width: 90%;
+  margin: 8px;
+  padding:3px;
+  font-size: 16px;
+  color:$colorSidebar;
+}
+
+.add-components {
+  width: 90%;
+  margin: 8px;
+  padding:3px;
+  font-size: 16px;
+  color:$colorSidebar;
+}
+
+.add-components-btn,
+.add-instruction-btn {
+  position: absolute;
+  top:62px;
+  right:8px;
+ font-size: 40px !important;
+  color:$colorSuccess !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.instruction-list,
+.components-list {
+  width: 90%;
+  height: 240px;
+  font-size: 16px;
+  margin:20px;
+  overflow: auto;
+  li{
+    margin-left: 20px;
+  }
+}
+
+.components-list{
+  margin-top: 58px;
+}
+
+.edit-icon {
+  font-size: 20px !important;
+  color: #efc307 !important;
+  padding: 0 7px  !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.bin-icon {
+  font-size: 20px !important;
+  color: darkred !important;
+  padding: 0 7px  !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.addPlanImg {
+  width: 198px;
+  height: 177px;
+}
+
+.add {
+  float:left;
+}
+
