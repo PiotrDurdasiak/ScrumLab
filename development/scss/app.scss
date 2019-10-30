@@ -199,3 +199,165 @@ początek sekcji zadania 3......................................................
 
 
 }
+
+
+
+/*
+początek sekcji nowy przepis...................................................
+.............................................................................
+*/
+
+
+.add-recipe {
+  color: $colorSidebar;
+  font-family: "Open Sans", sans-serif;
+  margin: 40px auto 0;
+  background-color: white;
+  border:1px dashed $colorSidebar;
+  width:96%;
+  height:90%;
+  padding:40px;
+
+}
+
+.recipe-header {
+  border-bottom: 2px solid $colorSidebar;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .recipe-title {
+    font-family: "Open Sans", sans-serif;
+    font-size: 35px;
+    color: #E58A20;
+    margin-bottom: 10px;
+  }
+  .recipe-button {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    border: none;
+    color:white;
+    background-color: #E58A20;
+    padding-left:20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.recipe-form {
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  .recipe-name {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 80px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    input {
+      color:$colorSidebar;
+      font-size: 16px;
+      padding: 5px;
+      width: 70%;
+
+    }
+  }
+  .recipe-text {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 80px;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    textarea {
+      color:$colorSidebar;
+      padding: 5px;
+      font-size: 16px;
+    }
+  }
+}
+
+.instructions-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.instructions-title {
+  font-size: 35px;
+  font-weight: normal;
+  display: block;
+  padding: 5px 5px 5px 0;
+  border-bottom: 2px solid $colorSidebar;
+}
+
+.instructions,
+.components {
+  position: relative;
+  width: 47%;
+  display:flex;
+  flex-direction: column;
+}
+
+.add-instruction {
+  width: 90%;
+  margin: 8px;
+  padding:3px;
+  font-size: 16px;
+  color:$colorSidebar;
+}
+
+.add-components {
+  width: 90%;
+  margin: 8px;
+  padding:3px;
+  font-size: 16px;
+  color:$colorSidebar;
+}
+
+.add-components-btn,
+.add-instruction-btn {
+  position: absolute;
+  top:62px;
+  right:8px;
+ font-size: 40px !important;
+  color:$colorSuccess !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.instruction-list,
+.components-list {
+  width: 90%;
+  height: 240px;
+  font-size: 16px;
+  margin:20px;
+  overflow: auto;
+  li{
+    margin-left: 20px;
+  }
+}
+
+.components-list{
+  margin-top: 58px;
+}
+
+.edit-icon {
+  font-size: 20px !important;
+  color: #efc307 !important;
+  padding: 0 7px  !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.bin-icon {
+  font-size: 20px !important;
+  color: darkred !important;
+  padding: 0 7px  !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
