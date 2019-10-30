@@ -6,7 +6,6 @@
 
 @import "variables", "app";
 
- 
 body {
   background-color: #ebebeb;
   font-size: 14px;
@@ -20,47 +19,45 @@ body {
 
 /* 1.1 Naglowek poczatek */
 
-@import url('https://fonts.googleapis.com/css?family=Charmonman');
-h1{
+@import url("https://fonts.googleapis.com/css?family=Charmonman");
+h1 {
   font-family: Charmonman;
 }
 
-.main_header{
+.main_header {
   display: flex;
   justify-content: space-between;
-  background-color:#4a4a49;
-
+  background-color: #4a4a49;
 }
-.bottom_menu{
+.bottom_menu {
   font-family: "Open Sans", sans-serif;
   list-style-type: none;
   display: flex;
   align-items: center;
 }
 
-.menu_links{
+.menu_links {
   font-size: 1.5em;
   padding: 1em;
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.first_link{
-  color: #E58A20;
+.first_link {
+  color: #e58a20;
 }
 
-.logo_whole{
+.logo_whole {
   font-size: 2em;
   text-decoration: none;
 }
-.logo_first_part{
-  font-weight:100;
+.logo_first_part {
+  font-weight: 100;
   color: white;
 }
-.logo_second_part{
-  color:#E58A20;
+.logo_second_part {
+  color: #e58a20;
   font-weight: 700;
-
 }
 
 /* 1.3 Call to Action  */
@@ -111,7 +108,7 @@ h1{
 }
 
 /* 1.4 O aplikacji  */
-.about-application{
+.about-application {
   background-color: #ebebeb;
   width: 100%;
   height: 700px;
@@ -122,51 +119,51 @@ h1{
   font-family: "Open Sans", sans-serif;
 }
 
-.about-application-left{
+.about-application-left {
   flex-direction: column;
   width: 20%;
 
-  h3{
+  h3 {
     color: #4a4a49;
     font-size: 32px;
     font-weight: 500;
   }
 
-  p{
+  p {
     color: #4a4a49;
     font-size: 23px;
     font-weight: 400;
   }
 }
 
-.about-application-center{
+.about-application-center {
   flex-direction: column;
   width: 20%;
 
-  h3{
+  h3 {
     color: #4a4a49;
     font-size: 32px;
     font-weight: 500;
   }
 
-  p{
+  p {
     color: #4a4a49;
     font-size: 23px;
     font-weight: 400;
   }
 }
 
-.about-application-right{
+.about-application-right {
   flex-direction: column;
   width: 20%;
 
-  h3{
+  h3 {
     color: #4a4a49;
     font-size: 32px;
     font-weight: 500;
   }
 
-  p{
+  p {
     color: #4a4a49;
     font-size: 23px;
     font-weight: 400;
@@ -175,7 +172,7 @@ h1{
 
 /* 1.5 Formularz do zapisu  */
 .newsletter-section {
-  background-color: #5B605F;
+  background-color: #5b605f;
   width: 100%;
   height: 150px;
   display: flex;
@@ -184,7 +181,7 @@ h1{
   font-family: "Open Sans", sans-serif;
 }
 
-.newsletter-section-left{
+.newsletter-section-left {
   padding-left: 140px;
   width: 50%;
 
@@ -195,7 +192,7 @@ h1{
   }
 }
 
-.newsletter-section-right{
+.newsletter-section-right {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -213,7 +210,7 @@ h1{
   #newsletter-button:hover {
     cursor: pointer;
   }
-  input{
+  input {
     height: 60px;
     width: 40%;
     border: none;
@@ -221,16 +218,16 @@ h1{
   }
 }
 
-.fas{
+.fas {
   font-size: 75px;
   padding-bottom: 10px;
-  color: #A1A193;
+  color: #a1a193;
 }
 
-.far{
+.far {
   font-size: 95px;
   padding-bottom: 10px;
-  color: #A1A193;
+  color: #a1a193;
 }
 
 /* 1.1 Naglowek koniec  */
@@ -277,8 +274,6 @@ footer {
   display: flex;
   justify-content: center;
 }
-
-
 
 .info {
   display: flex;
