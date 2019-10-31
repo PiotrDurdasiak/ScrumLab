@@ -83,7 +83,7 @@ instructionButton.addEventListener("click", function () {
         newInstruction.appendChild(editButton);
 
         newInstructionText.innerText=document.querySelector(".add-instruction").value;
-        // document.querySelector(".add-instruction").value="";
+        document.querySelector(".add-instruction").value="";
         editButton.classList.add("far");
         editButton.classList.add("fa-edit");
         editButton.classList.add("edit-icon");
@@ -123,7 +123,7 @@ componentsButton.addEventListener("click", function () {
     newComponent.appendChild(editButton);
 
     newComponentText.innerText=document.querySelector(".add-components").value;
-    // document.querySelector(".add-components").value="";
+    document.querySelector(".add-components").value="";
     editButton.classList.add("far");
     editButton.classList.add("fa-edit");
     editButton.classList.add("edit-icon");
@@ -163,20 +163,32 @@ let newRecipe = {
     recipeIngredients:[],
     recipeInstructions:[]
 };
-componentsButton.addEventListener("click", function(e) {
-    e.preventDefault();
-    newRecipe.recipeIngredients.push(components.value);
-    document.querySelector(".add-components").value="";
-});
-
-instructionButton.addEventListener("click", function(e) {
-    e.preventDefault();
-    newRecipe.recipeInstructions.push(instructions.value);
-    document.querySelector(".add-instruction").value="";
-});
+// componentsButton.addEventListener("click", function(e) {
+//     e.preventDefault();
+//     newRecipe.recipeIngredients.push(components.value);
+//     document.querySelector(".add-components").value="";
+// });
+//
+// instructionButton.addEventListener("click", function(e) {
+//     e.preventDefault();
+//     newRecipe.recipeInstructions.push(instructions.value);
+//     document.querySelector(".add-instruction").value="";
+// });
 
 closeSaveBtn.addEventListener("click", function(e) {
     e.preventDefault();
+
+    const instList=document.querySelector(".instruction-list").getElementsByTagName("li");
+    for(let i=0; i<instList.length;i++){
+        newRecipe.recipeInstructions.push(instList[i].innerText);
+    }
+
+    const compList=document.querySelector(".components-list").getElementsByTagName("li");
+    for(let i=0; i<compList.length;i++){
+        newRecipe.recipeIngredients.push(compList[i].innerText);
+    }
+
+
     newRecipe.recipeTitle = title.value;
     newRecipe.recipeText=opis.value;
     saveRecipeToLocalStorage(newRecipe);
