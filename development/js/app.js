@@ -161,13 +161,14 @@ let instructions=document.querySelector(".add-instruction");
 let components=document.querySelector(".add-components");
 
 let newRecipe = {
+    id:null,
     recipeTitle:"",
     recipeText:"",
     recipeIngredients:[],
     recipeInstructions:[]
 };
 
-
+let allRecipes=[];
 closeSaveBtn.addEventListener("click", function(e) {
     e.preventDefault();
 
@@ -180,7 +181,12 @@ closeSaveBtn.addEventListener("click", function(e) {
     for(let i=0; i<compList.length;i++){
         newRecipe.recipeIngredients.push(compList[i].innerText);
     }
-
+    if (localStorage.getItem("recipes") != null) {
+        let idRecipe=JSON.parse(localStorage.getItem("recipes"));
+        newRecipe.id=idRecipe.length+1;
+    } else {
+        newRecipe.id=1;
+    }
 
     newRecipe.recipeTitle = title.value;
     newRecipe.recipeText=opis.value;
@@ -254,6 +260,7 @@ let planSunday=document.getElementsByClassName("recipe-nie");
 
 
 let newPlan = {
+    id:null,
     title:"",
     description:"",
     weekNumber:"",
@@ -298,6 +305,13 @@ addPlanBtn.addEventListener("click", function(e) {
 
     for (let i=0;i<planSunday.length;i++) {
         newPlan.sunday.push(planSunday[i].value);
+    }
+
+    if (localStorage.getItem("plans") != null) {
+        let idPlan=JSON.parse(localStorage.getItem("plans"));
+        newPlan.id=idPlan.length+1;
+    } else {
+        newPlan.id=1;
     }
 
     savePlanToLocalStorage(newPlan);
