@@ -11,6 +11,9 @@ btn1.addEventListener("click", function() {
     btn2.querySelector("i").classList.remove("arrow");
     btn3.classList.remove("border");
     btn3.querySelector("i").classList.remove("arrow");
+
+    document.querySelector(".task3-content").classList.remove("display-none");
+    document.querySelector(".add-recipe").classList.add("display-none");
 })
 
 btn2.addEventListener("click", function() {
@@ -43,8 +46,10 @@ console.log("Masz na imię: ", localStorage.getItem("savedName"));
 if (localStorage.getItem("savedName")!==null) {
     document.querySelector(".new-guest-content").classList.toggle("display-none");
     document.querySelector(".header-right-name").innerText=localStorage.getItem("savedName");
+    document.querySelector(".add-recipe").classList.add("display-none");
 } else {
     document.querySelector(".task3-content").classList.add("display-none");
+    document.querySelector(".add-recipe").classList.add("display-none");
 }
 
 
@@ -78,7 +83,7 @@ instructionButton.addEventListener("click", function () {
         newInstruction.appendChild(editButton);
 
         newInstructionText.innerText=document.querySelector(".add-instruction").value;
-        document.querySelector(".add-instruction").value="";
+        // document.querySelector(".add-instruction").value="";
         editButton.classList.add("far");
         editButton.classList.add("fa-edit");
         editButton.classList.add("edit-icon");
@@ -118,7 +123,7 @@ componentsButton.addEventListener("click", function () {
     newComponent.appendChild(editButton);
 
     newComponentText.innerText=document.querySelector(".add-components").value;
-    document.querySelector(".add-components").value="";
+    // document.querySelector(".add-components").value="";
     editButton.classList.add("far");
     editButton.classList.add("fa-edit");
     editButton.classList.add("edit-icon");
@@ -161,11 +166,13 @@ let newRecipe = {
 componentsButton.addEventListener("click", function(e) {
     e.preventDefault();
     newRecipe.recipeIngredients.push(components.value);
+    document.querySelector(".add-components").value="";
 });
 
 instructionButton.addEventListener("click", function(e) {
     e.preventDefault();
     newRecipe.recipeInstructions.push(instructions.value);
+    document.querySelector(".add-instruction").value="";
 });
 
 closeSaveBtn.addEventListener("click", function(e) {
@@ -190,3 +197,13 @@ function saveRecipeToLocalStorage(newObject) {
     }
     alert("Przepis zapisany do localStorage");
 }
+
+// przycisk dodaj przepis
+const addRecipe=document.querySelector(".addRecipe");
+addRecipe.addEventListener("click", function () {
+    document.querySelector(".add-recipe").classList.remove("display-none");
+    document.querySelector(".task3-content").classList.add("display-none")
+})
+
+// przycisk pulpit
+
