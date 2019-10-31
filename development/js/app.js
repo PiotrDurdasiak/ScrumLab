@@ -86,7 +86,7 @@ instructionButton.addEventListener("click", function () {
         newInstruction.appendChild(editButton);
 
         newInstructionText.innerText=document.querySelector(".add-instruction").value;
-        // document.querySelector(".add-instruction").value="";
+        document.querySelector(".add-instruction").value="";
         editButton.classList.add("far");
         editButton.classList.add("fa-edit");
         editButton.classList.add("edit-icon");
@@ -126,7 +126,7 @@ componentsButton.addEventListener("click", function () {
     newComponent.appendChild(editButton);
 
     newComponentText.innerText=document.querySelector(".add-components").value;
-    // document.querySelector(".add-components").value="";
+    document.querySelector(".add-components").value="";
     editButton.classList.add("far");
     editButton.classList.add("fa-edit");
     editButton.classList.add("edit-icon");
@@ -166,6 +166,7 @@ let newRecipe = {
     recipeIngredients:[],
     recipeInstructions:[]
 };
+
 
 closeSaveBtn.addEventListener("click", function(e) {
     e.preventDefault();

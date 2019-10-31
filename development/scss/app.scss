@@ -383,6 +383,7 @@ początek sekcji nowy przepis...................................................
   float:left;
 }
 
+
 /*
 początek sekcji nowy plan...................................................................
 */
@@ -506,4 +507,127 @@ width: 16%;
 }
 
 
+
+
+
+
+
+/*
+3.3 Pulpit - Widżet powiadomienia........................................................................
+.........................................................................................................
+*/
+
+.app-notifications{
+  width: 55%;
+  height: 177px;
+  display: flex;
+  flex-direction: column;
+  float: right;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.app-notifications-info{
+  height: 30%;
+  background-color: white;
+  border: 1px dashed #3498DB;
+  margin-bottom: 3.333%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+
+  .fa-info-circle{
+    font-size: 2.5em;
+    padding: 5px 15px;
+    color: #3498DB;
+  }
+
+  p{
+    font-size: 18px;
+    color: #3498DB;
+  }
+}
+
+.app-notifications-info:after{
+  content: "\f057";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  width: 10px;
+  color: #3498DB;
+  top: 8px;
+  right: 18px;
+  font-size: 1.5em;
+}
+
+.app-notifications-attention{
+  height: 30%;
+  background-color: white;
+  border: 1px dashed #FFB03B;
+  margin-bottom: 3.333%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+
+  .fa-exclamation-circle{
+    font-size: 2.5em;
+    padding: 5px 15px;
+    color: #FFB03B;
+  }
+
+  p{
+    font-size: 18px;
+    color: #FFB03B;
+    position: relative;
+  }
+}
+
+.app-notifications-attention:after{
+  content: "\f057";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 33%;
+  color: #FFB03B;
+  top: 8px;
+  right: 18px;
+  font-size: 1.5em;
+}
+
+.app-notifications-hello{
+  height: 30%;
+  background-color: white;
+  border: 1px dashed #468966;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+
+  .fa-check-circle{
+    font-size: 2.5em;
+    padding: 5px 15px;
+    color: #468966;
+  }
+
+  p{
+    font-size: 18px;
+    color: #468966;
+  }
+}
+
+.app-notifications-hello:after{
+  content: "\f057";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 33%;
+  color: #468966;
+  top: 8px;
+  right: 18px;
+  font-size: 1.5em;
+}
 
