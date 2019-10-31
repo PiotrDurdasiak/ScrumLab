@@ -372,6 +372,7 @@ początek sekcji nowy przepis...................................................
     cursor: pointer;
   }
 }
+/// przyciski dodaj przepis i dodaj plan....................................................
 
 .addPlanImg {
   width: 198px;
@@ -381,4 +382,128 @@ początek sekcji nowy przepis...................................................
 .add {
   float:left;
 }
+
+/*
+początek sekcji nowy plan...................................................................
+*/
+
+
+.add-plan {
+  color: $colorSidebar;
+  font-family: "Open Sans", sans-serif;
+  margin: 40px auto 0;
+  background-color: white;
+  border: 1px dashed $colorSidebar;
+  width: 96%;
+  height: 90%;
+  padding: 40px;
+}
+
+.plan-header {
+  border-bottom: 2px solid $colorSidebar;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .plan-title {
+    font-family: "Open Sans", sans-serif;
+    font-size: 35px;
+    color: #E58A20;
+    margin-bottom: 10px;
+  }
+  .plan-button {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    border: none;
+    color:white;
+    background-color: #E58A20;
+    padding-left:20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.plan-form {
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  .plan-name {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .plan-name-input {
+      color:$colorSidebar;
+      font-size: 16px;
+      padding: 5px;
+      width: 85%;
+
+    }
+  }
+  .plan-text {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .plan-text-input{
+      color:$colorSidebar;
+      padding: 5px;
+      font-size: 16px;
+      width: 85%;
+    }
+  }
+
+  .plan-number {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .plan-number-input {
+      margin-left: 5px;
+      color:$colorSidebar;
+      padding: 5px;
+      font-size: 16px;
+      width: 10%;
+    }
+  }
+}
+
+.plan-table {
+  border-collapse: collapse;
+  width: 100%;
+  height: 42vh;
+
+}
+
+.row-table-header {
+width: 16%;
+  margin: 0 auto;
+  border-top: 1px solid $colorSidebar;
+}
+
+.row-table-header1 {
+  width: 16%;
+  margin: 0 auto;
+}
+
+.plan-table-row{
+  border-top: 1px solid $colorSidebar;
+}
+
+.recipe-select {
+  width: 90%;
+  margin-bottom: 5px;
+  background-color: white;
+  font-size: 16px;
+  color: $colorSidebar;
+  padding: 5px;
+  border-radius: 3px;
+  border:1px solid $colorSidebar;
+}
+
+
 
