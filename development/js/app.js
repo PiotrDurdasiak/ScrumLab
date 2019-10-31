@@ -14,6 +14,7 @@ btn1.addEventListener("click", function() {
 
     document.querySelector(".task3-content").classList.remove("display-none");
     document.querySelector(".add-recipe").classList.add("display-none");
+    document.querySelector(".add-plan").classList.add("display-none");
 })
 
 btn2.addEventListener("click", function() {
@@ -47,9 +48,11 @@ if (localStorage.getItem("savedName")!==null) {
     document.querySelector(".new-guest-content").classList.toggle("display-none");
     document.querySelector(".header-right-name").innerText=localStorage.getItem("savedName");
     document.querySelector(".add-recipe").classList.add("display-none");
+    document.querySelector(".add-plan").classList.add("display-none")
 } else {
     document.querySelector(".task3-content").classList.add("display-none");
     document.querySelector(".add-recipe").classList.add("display-none");
+    document.querySelector(".add-plan").classList.add("display-none")
 }
 
 
@@ -163,17 +166,7 @@ let newRecipe = {
     recipeIngredients:[],
     recipeInstructions:[]
 };
-// componentsButton.addEventListener("click", function(e) {
-//     e.preventDefault();
-//     newRecipe.recipeIngredients.push(components.value);
-//     document.querySelector(".add-components").value="";
-// });
-//
-// instructionButton.addEventListener("click", function(e) {
-//     e.preventDefault();
-//     newRecipe.recipeInstructions.push(instructions.value);
-//     document.querySelector(".add-instruction").value="";
-// });
+
 
 closeSaveBtn.addEventListener("click", function(e) {
     e.preventDefault();
@@ -192,8 +185,10 @@ closeSaveBtn.addEventListener("click", function(e) {
     newRecipe.recipeTitle = title.value;
     newRecipe.recipeText=opis.value;
     saveRecipeToLocalStorage(newRecipe);
+    document.querySelector(".add-plan").classList.add("display-none");
     document.querySelector(".add-recipe").classList.add("display-none");
     document.querySelector(".task3-content").classList.remove("display-none");
+    location.reload();
 
 });
 
@@ -215,7 +210,117 @@ const addRecipe=document.querySelector(".addRecipe");
 addRecipe.addEventListener("click", function () {
     document.querySelector(".add-recipe").classList.remove("display-none");
     document.querySelector(".task3-content").classList.add("display-none")
+    document.querySelector(".add-plan").classList.add("display-none");
 })
 
-// przycisk pulpit
+//przycisk dodaj plan
+const addPlan=document.querySelector(".addPlan");
+addPlan.addEventListener("click", function () {
+    document.querySelector(".add-plan").classList.remove("display-none");
+    document.querySelector(".task3-content").classList.add("display-none")
+})
 
+// pole wyboru przepisu w sekcji nowy plan
+
+const planRecipePlace=document.getElementsByClassName("recipe-select");
+let recipeObject=JSON.parse(localStorage.getItem("recipes"));
+
+for (let i=0; i<planRecipePlace.length;i++){
+
+    for (let j=0; j<recipeObject.length; j++)
+    {
+        const recipeItem = document.createElement("option");
+        planRecipePlace[i].appendChild(recipeItem);
+        recipeItem.innerText=recipeObject[j].recipeTitle;
+    }
+}
+
+// guzik zapisz i zamknij plus dodawanie nowego obiektu plan do localstorage
+const addPlanBtn=document.querySelector(".plan-button");
+
+let planTitle=document.querySelector(".plan-name-input");
+let planInfo=document.querySelector(".plan-text-input");
+let planNumber=document.querySelector(".plan-number-input");
+let planMonday=document.getElementsByClassName("recipe-pon");
+let planTuesday=document.getElementsByClassName("recipe-wt");
+let planWednesday=document.getElementsByClassName("recipe-sr");
+let planThursday=document.getElementsByClassName("recipe-czw");
+let planFriday=document.getElementsByClassName("recipe-pia");
+let planSaturday=document.getElementsByClassName("recipe-so");
+let planSunday=document.getElementsByClassName("recipe-nie");
+
+
+
+
+
+let newPlan = {
+    title:"",
+    description:"",
+    weekNumber:"",
+    monday:[],
+    tuesday:[],
+    wednesday:[],
+    thursday:[],
+    friday:[],
+    saturday:[],
+    sunday:[]
+};
+
+addPlanBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    newPlan.title = planTitle.value;
+    newPlan.description=planInfo.value;
+    newPlan.weekNumber=planNumber.value;
+
+    for (let i=0;i<planMonday.length;i++) {
+        newPlan.monday.push(planMonday[i].value);
+    }
+
+    for (let i=0;i<planTuesday.length;i++) {
+        newPlan.tuesday.push(planTuesday[i].value);
+    }
+
+    for (let i=0;i<planWednesday.length;i++) {
+        newPlan.wednesday.push(planWednesday[i].value);
+    }
+
+    for (let i=0;i<planThursday.length;i++) {
+        newPlan.thursday.push(planThursday[i].value);
+    }
+
+    for (let i=0;i<planFriday.length;i++) {
+        newPlan.friday.push(planFriday[i].value);
+    }
+
+    for (let i=0;i<planSaturday.length;i++) {
+        newPlan.saturday.push(planSaturday[i].value);
+    }
+
+    for (let i=0;i<planSunday.length;i++) {
+        newPlan.sunday.push(planSunday[i].value);
+    }
+
+    savePlanToLocalStorage(newPlan);
+
+    document.querySelector(".add-plan").classList.add("display-none");
+    document.querySelector(".add-recipe").classList.add("display-none");
+    document.querySelector(".task3-content").classList.remove("display-none");
+    document.querySelector(".add-plan").classList.add("display-none");
+    location.reload();
+
+});
+
+function savePlanToLocalStorage(newObject) {
+    let dataFromLocalStorage = [];
+    if (localStorage.getItem("plans") != null) {
+        dataFromLocalStorage = JSON.parse(localStorage.getItem("plans"));
+        dataFromLocalStorage.push(newObject);
+        localStorage.setItem("plans", JSON.stringify(dataFromLocalStorage));
+    } else {
+        dataFromLocalStorage.push(newObject);
+        localStorage.setItem("plans", JSON.stringify(dataFromLocalStorage));
+    }
+    alert("plan zapisany do localStorage");
+}
+
+console.log(planThursday.length);
