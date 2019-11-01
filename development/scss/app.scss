@@ -368,16 +368,8 @@ początek sekcji nowy przepis...................................................
     cursor: pointer;
   }
 }
-/// przyciski dodaj przepis i dodaj plan....................................................
 
-.addPlanImg {
-  width: 198px;
-  height: 177px;
-}
 
-.add {
-  float: left;
-}
 
 /*
 początek sekcji nowy plan...................................................................
@@ -498,17 +490,52 @@ początek sekcji nowy plan......................................................
   border: 1px solid $colorSidebar;
 }
 
+
+
+
+
+/// przyciski dodaj przepis i dodaj plan....................................................
+.buttons-notifications {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  height: 30%;
+  width: 100%;
+}
+
+.add {
+  width: 40%;
+  height: 100%;
+
+}
+.addRecipe,
+.addPlan{
+  width: 45%;
+  height: 90%;
+  overflow: hidden;
+}
+
+.addPlanImg,
+.addRecipeImg {
+  width: 90%;
+  height: 100%;
+}
+
+
+
+
+
 /*
 3.3 Pulpit - Widżet powiadomienia........................................................................
 .........................................................................................................
 */
 
-.app-notifications {
-  width: 55%;
-  height: 177px;
+.app-notifications{
+  width: 65%;
+  height: 90%;
+
   display: flex;
   flex-direction: column;
-  float: right;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
 }
@@ -583,7 +610,10 @@ początek sekcji nowy plan......................................................
   font-size: 1.5em;
 }
 
-.app-notifications-hello {
+
+.app-notifications-hello{
+  padding:10px;
+
   height: 30%;
   background-color: white;
   border: 1px dashed #468966;
@@ -615,6 +645,35 @@ początek sekcji nowy plan......................................................
   top: 8px;
   right: 18px;
   font-size: 1.5em;
+}
+//Plan tygodnia..................................................................................................................................................
+
+
+.table_container{
+  width: 100%;
+  height:65%;
+  background-color: #fffffa;
+  border: darkgray dashed 1px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+
+.table_title{
+
+  color: #ff6500;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.week_plan_table{
+  width: 100%;
+  height: 75%;
+  border: darkgray solid 1px;
+  border-collapse: collapse;
+  border-left: none;
+  border-right: none;
 }
 
 /*
@@ -707,4 +766,38 @@ początek sekcji nowy plan......................................................
 .recipe-table-body td{
   border-top: 1px solid $colorSidebar;
   padding: 10px 0 10px;
+
+
+.col_titles>th {
+  text-align: left;
+  font-size: 1.5rem;
+  border: 1px solid gray;
+  padding: 10px 15px;
+  border-left: none;
+  border-right: none;
 }
+
+.week_plan_table td{
+  font-size: 1.4rem;
+  color: gray;
+  border: 1px solid gray;
+  padding: 5px 10px;
+  border-left: none;
+  border-right: none;
+
+}
+
+.under_table_bnt{
+  font-size: 1.1rem;
+  margin: 10px;
+  color: #FFB03B;
+  display: flex;
+  justify-content: space-between;
+  >a{
+    text-decoration: none;
+    color: #FFB03B;
+    :visited{
+      color: #FFB03B;
+
+    }
+  }

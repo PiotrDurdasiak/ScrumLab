@@ -48,7 +48,6 @@ const newName =document.querySelector(".guest-name-input");
 const addName =document.querySelector(".guest-name-add");
 
 
-console.log("Masz na imię: ", localStorage.getItem("savedName"));
 if (localStorage.getItem("savedName")!==null) {
     document.querySelector(".new-guest-content").classList.toggle("display-none");
     document.querySelector(".header-right-name").innerText=localStorage.getItem("savedName");
@@ -166,13 +165,14 @@ let instructions=document.querySelector(".add-instruction");
 let components=document.querySelector(".add-components");
 
 let newRecipe = {
+    id:null,
     recipeTitle:"",
     recipeText:"",
     recipeIngredients:[],
     recipeInstructions:[]
 };
 
-
+let allRecipes=[];
 closeSaveBtn.addEventListener("click", function(e) {
     e.preventDefault();
 
@@ -185,7 +185,12 @@ closeSaveBtn.addEventListener("click", function(e) {
     for(let i=0; i<compList.length;i++){
         newRecipe.recipeIngredients.push(compList[i].innerText);
     }
-
+    if (localStorage.getItem("recipes") != null) {
+        let idRecipe=JSON.parse(localStorage.getItem("recipes"));
+        newRecipe.id=idRecipe.length+1;
+    } else {
+        newRecipe.id=1;
+    }
 
     newRecipe.recipeTitle = title.value;
     newRecipe.recipeText=opis.value;
@@ -259,6 +264,7 @@ let planSunday=document.getElementsByClassName("recipe-nie");
 
 
 let newPlan = {
+    id:null,
     title:"",
     description:"",
     weekNumber:"",
@@ -305,6 +311,13 @@ addPlanBtn.addEventListener("click", function(e) {
         newPlan.sunday.push(planSunday[i].value);
     }
 
+    if (localStorage.getItem("plans") != null) {
+        let idPlan=JSON.parse(localStorage.getItem("plans"));
+        newPlan.id=idPlan.length+1;
+    } else {
+        newPlan.id=1;
+    }
+
     savePlanToLocalStorage(newPlan);
 
     document.querySelector(".add-plan").classList.add("display-none");
@@ -327,6 +340,7 @@ function savePlanToLocalStorage(newObject) {
     }
     alert("plan zapisany do localStorage");
 }
+
 
 console.log(planThursday.length);
 
@@ -368,3 +382,113 @@ for (let i=0;i<recipeObject2.length;i++){
     removeButton.classList.add("fa-trash-alt");
     removeButton.classList.add("bin-icon");
 }
+
+
+
+// dodawanie planu do ekranu głównego
+
+Date.prototype.getWeekNumber = function(){
+   let d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
+    let dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    let yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1)/7)
+};
+
+let actualWeekNumber=(new Date().getWeekNumber());
+
+
+const planObject = dataFromLocalStorage = JSON.parse(localStorage.getItem("plans"));
+
+
+
+let weekNumberArray=[];
+let actualPlanNumber;
+for (let i=0;i<planObject.length;i++){
+    weekNumberArray.push(parseFloat(planObject[i].weekNumber));
+}
+
+let closest = weekNumberArray.reduce(function(prev, curr) {
+    return (Math.abs(curr - actualWeekNumber) < Math.abs(prev - actualWeekNumber) ? curr : prev);})
+
+for (let i=0;i<planObject.length;i++){
+    if (parseFloat(planObject[i].weekNumber) === closest){
+        actualPlanNumber=planObject[i];
+    }
+}
+
+console.log(actualPlanNumber);
+
+document.querySelector(".table_title").innerHTML="Twój plan na "+actualPlanNumber.weekNumber+" tydzień";
+ for (let i=0; i<actualPlanNumber.monday.length;i++){
+     document.querySelectorAll(".poniedzialek")[i].innerHTML=actualPlanNumber.monday[i];
+     document.querySelectorAll(".wtorek")[i].innerHTML=actualPlanNumber.tuesday[i];
+     document.querySelectorAll(".sroda")[i].innerHTML=actualPlanNumber.wednesday[i];
+     document.querySelectorAll(".czwartek")[i].innerHTML=actualPlanNumber.thursday[i];
+     document.querySelectorAll(".piatek")[i].innerHTML=actualPlanNumber.friday[i];
+     document.querySelectorAll(".sobota")[i].innerHTML=actualPlanNumber.saturday[i];
+     document.querySelectorAll(".niedziela")[i].innerHTML=actualPlanNumber.sunday[i];
+ }
+
+ //przycisk pokazujący następny tydzień
+const nextButton =document.querySelector(".under_table_bnt2");
+ let actualPlan=actualPlanNumber;
+ 
+ nextButton.addEventListener("click", function () {
+     for (let i=0;i<planObject.length;i++){
+         if (actualPlan.id ===planObject[planObject.length-1].id) {
+             break;
+         } else {
+         if (planObject[i].id === actualPlan.id){
+             console.log(planObject[i+1]);
+             actualPlan=planObject[i+1];
+             document.querySelector(".table_title").innerHTML="Twój plan na "+actualPlan.weekNumber+" tydzień";
+             for (let i=0; i<actualPlanNumber.monday.length;i++){
+                 document.querySelectorAll(".poniedzialek")[i].innerHTML=actualPlan.monday[i];
+                 document.querySelectorAll(".wtorek")[i].innerHTML=actualPlan.tuesday[i];
+                 document.querySelectorAll(".sroda")[i].innerHTML=actualPlan.wednesday[i];
+                 document.querySelectorAll(".czwartek")[i].innerHTML=actualPlan.thursday[i];
+                 document.querySelectorAll(".piatek")[i].innerHTML=actualPlan.friday[i];
+                 document.querySelectorAll(".sobota")[i].innerHTML=actualPlan.saturday[i];
+                 document.querySelectorAll(".niedziela")[i].innerHTML=actualPlan.sunday[i];
+             }
+             break;
+         }
+         }
+     }
+ })
+
+//przycisk pokazujący poprzedni tydzień
+const prevButton =document.querySelector(".under_table_bnt1");
+
+prevButton.addEventListener("click", function () {
+    for (let i=0;i<planObject.length;i++){
+        if(actualPlan.id===1){
+            break;
+        } else {
+        if (planObject[i].id === actualPlan.id){
+            console.log(planObject[i-1]);
+            actualPlan=planObject[i-1];
+            document.querySelector(".table_title").innerHTML="Twój plan na "+actualPlan.weekNumber+" tydzień";
+            for (let i=0; i<actualPlanNumber.monday.length;i++){
+                document.querySelectorAll(".poniedzialek")[i].innerHTML=actualPlan.monday[i];
+                document.querySelectorAll(".wtorek")[i].innerHTML=actualPlan.tuesday[i];
+                document.querySelectorAll(".sroda")[i].innerHTML=actualPlan.wednesday[i];
+                document.querySelectorAll(".czwartek")[i].innerHTML=actualPlan.thursday[i];
+                document.querySelectorAll(".piatek")[i].innerHTML=actualPlan.friday[i];
+                document.querySelectorAll(".sobota")[i].innerHTML=actualPlan.saturday[i];
+                document.querySelectorAll(".niedziela")[i].innerHTML=actualPlan.sunday[i];
+            }
+            break;
+        }
+        }
+    }
+})
+
+
+
+
+
+
+
+
