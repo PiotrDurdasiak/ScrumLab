@@ -15,6 +15,7 @@ btn1.addEventListener("click", function() {
     document.querySelector(".task3-content").classList.remove("display-none");
     document.querySelector(".add-recipe").classList.add("display-none");
     document.querySelector(".add-plan").classList.add("display-none");
+    document.querySelector(".recipe-list").classList.add("display-none");
 })
 
 btn2.addEventListener("click", function() {
@@ -25,6 +26,10 @@ btn2.addEventListener("click", function() {
     btn3.classList.remove("border");
     btn3.querySelector("i").classList.remove("arrow");
 
+    document.querySelector(".task3-content").classList.add("display-none");
+    document.querySelector(".add-recipe").classList.add("display-none");
+    document.querySelector(".add-plan").classList.add("display-none");
+    document.querySelector(".recipe-list").classList.remove("display-none");
 })
 
 btn3.addEventListener("click", function() {
@@ -324,3 +329,42 @@ function savePlanToLocalStorage(newObject) {
 }
 
 console.log(planThursday.length);
+
+
+// zmiana na zakładkę - przepisy
+
+const recipeObject2 = JSON.parse(localStorage.getItem("recipes"));
+const recipeTable = document.querySelector(".recipe-table-body");
+
+for (let i=0;i<recipeObject2.length;i++){
+
+    const tableTr = document.createElement("tr");
+    const tableId = document.createElement("td");
+    const tableName = document.createElement("td");
+    const tableText = document.createElement("td");
+    const tableActions = document.createElement("td");
+    const removeButton = document.createElement("i");
+    const editButton = document.createElement("i");
+
+    recipeTable.appendChild(tableTr);
+    tableTr.appendChild(tableId);
+    tableTr.appendChild(tableName);
+    tableTr.appendChild(tableText);
+    tableTr.appendChild(tableActions);
+    tableActions.appendChild(removeButton);
+    tableActions.appendChild(editButton);
+
+    tableId.innerText = "1";
+    tableName.innerText = recipeObject2[i].recipeTitle;
+    tableText.innerText = recipeObject2[i].recipeText;
+
+    tableId.classList.add("recipe-id");
+    tableName.classList.add("recipe-name");
+
+    editButton.classList.add("far");
+    editButton.classList.add("fa-edit");
+    editButton.classList.add("edit-icon");
+    removeButton.classList.add("far");
+    removeButton.classList.add("fa-trash-alt");
+    removeButton.classList.add("bin-icon");
+}

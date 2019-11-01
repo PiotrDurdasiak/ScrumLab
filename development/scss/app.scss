@@ -202,8 +202,8 @@ początek sekcji zadania 3......................................................
   float: right;
 }
 
-.add:hover{
-  cursor:pointer;
+.add:hover {
+  cursor: pointer;
 }
 
 .addRecipeImg {
@@ -212,23 +212,20 @@ początek sekcji zadania 3......................................................
   margin-right: 10px;
 }
 
-
 /*
 początek sekcji nowy przepis...................................................
 .............................................................................
 */
-
 
 .add-recipe {
   color: $colorSidebar;
   font-family: "Open Sans", sans-serif;
   margin: 40px auto 0;
   background-color: white;
-  border:1px dashed $colorSidebar;
-  width:96%;
-  height:90%;
-  padding:40px;
-
+  border: 1px dashed $colorSidebar;
+  width: 96%;
+  height: 90%;
+  padding: 40px;
 }
 
 .recipe-header {
@@ -239,16 +236,16 @@ początek sekcji nowy przepis...................................................
   .recipe-title {
     font-family: "Open Sans", sans-serif;
     font-size: 35px;
-    color: #E58A20;
+    color: #e58a20;
     margin-bottom: 10px;
   }
   .recipe-button {
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
     border: none;
-    color:white;
-    background-color: #E58A20;
-    padding-left:20px;
+    color: white;
+    background-color: #e58a20;
+    padding-left: 20px;
     padding-right: 20px;
     margin-bottom: 10px;
 
@@ -269,11 +266,10 @@ początek sekcji nowy przepis...................................................
     padding-top: 15px;
     padding-bottom: 20px;
     input {
-      color:$colorSidebar;
+      color: $colorSidebar;
       font-size: 16px;
       padding: 5px;
       width: 70%;
-
     }
   }
   .recipe-text {
@@ -283,7 +279,7 @@ początek sekcji nowy przepis...................................................
     padding-top: 15px;
     padding-bottom: 30px;
     textarea {
-      color:$colorSidebar;
+      color: $colorSidebar;
       padding: 5px;
       font-size: 16px;
     }
@@ -307,33 +303,33 @@ początek sekcji nowy przepis...................................................
 .components {
   position: relative;
   width: 47%;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
 .add-instruction {
   width: 90%;
   margin: 8px;
-  padding:3px;
+  padding: 3px;
   font-size: 16px;
-  color:$colorSidebar;
+  color: $colorSidebar;
 }
 
 .add-components {
   width: 90%;
   margin: 8px;
-  padding:3px;
+  padding: 3px;
   font-size: 16px;
-  color:$colorSidebar;
+  color: $colorSidebar;
 }
 
 .add-components-btn,
 .add-instruction-btn {
   position: absolute;
-  top:62px;
-  right:8px;
- font-size: 40px !important;
-  color:$colorSuccess !important;
+  top: 62px;
+  right: 8px;
+  font-size: 40px !important;
+  color: $colorSuccess !important;
   &:hover {
     cursor: pointer;
   }
@@ -344,21 +340,21 @@ początek sekcji nowy przepis...................................................
   width: 90%;
   height: 240px;
   font-size: 16px;
-  margin:20px;
+  margin: 20px;
   overflow: auto;
-  li{
+  li {
     margin-left: 20px;
   }
 }
 
-.components-list{
+.components-list {
   margin-top: 58px;
 }
 
 .edit-icon {
   font-size: 20px !important;
   color: #efc307 !important;
-  padding: 0 7px  !important;
+  padding: 0 7px !important;
   &:hover {
     cursor: pointer;
   }
@@ -367,7 +363,7 @@ początek sekcji nowy przepis...................................................
 .bin-icon {
   font-size: 20px !important;
   color: darkred !important;
-  padding: 0 7px  !important;
+  padding: 0 7px !important;
   &:hover {
     cursor: pointer;
   }
@@ -380,14 +376,12 @@ początek sekcji nowy przepis...................................................
 }
 
 .add {
-  float:left;
+  float: left;
 }
-
 
 /*
 początek sekcji nowy plan...................................................................
 */
-
 
 .add-plan {
   color: $colorSidebar;
@@ -408,16 +402,16 @@ początek sekcji nowy plan......................................................
   .plan-title {
     font-family: "Open Sans", sans-serif;
     font-size: 35px;
-    color: #E58A20;
+    color: #e58a20;
     margin-bottom: 10px;
   }
   .plan-button {
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
     border: none;
-    color:white;
-    background-color: #E58A20;
-    padding-left:20px;
+    color: white;
+    background-color: #e58a20;
+    padding-left: 20px;
     padding-right: 20px;
     margin-bottom: 10px;
 
@@ -438,11 +432,10 @@ początek sekcji nowy plan......................................................
     padding-top: 10px;
     padding-bottom: 10px;
     .plan-name-input {
-      color:$colorSidebar;
+      color: $colorSidebar;
       font-size: 16px;
       padding: 5px;
       width: 85%;
-
     }
   }
   .plan-text {
@@ -451,8 +444,8 @@ początek sekcji nowy plan......................................................
     padding-right: 80px;
     padding-top: 10px;
     padding-bottom: 10px;
-    .plan-text-input{
-      color:$colorSidebar;
+    .plan-text-input {
+      color: $colorSidebar;
       padding: 5px;
       font-size: 16px;
       width: 85%;
@@ -465,7 +458,7 @@ początek sekcji nowy plan......................................................
     padding-bottom: 10px;
     .plan-number-input {
       margin-left: 5px;
-      color:$colorSidebar;
+      color: $colorSidebar;
       padding: 5px;
       font-size: 16px;
       width: 10%;
@@ -477,11 +470,10 @@ początek sekcji nowy plan......................................................
   border-collapse: collapse;
   width: 100%;
   height: 42vh;
-
 }
 
 .row-table-header {
-width: 16%;
+  width: 16%;
   margin: 0 auto;
   border-top: 1px solid $colorSidebar;
 }
@@ -491,7 +483,7 @@ width: 16%;
   margin: 0 auto;
 }
 
-.plan-table-row{
+.plan-table-row {
   border-top: 1px solid $colorSidebar;
 }
 
@@ -503,21 +495,15 @@ width: 16%;
   color: $colorSidebar;
   padding: 5px;
   border-radius: 3px;
-  border:1px solid $colorSidebar;
+  border: 1px solid $colorSidebar;
 }
-
-
-
-
-
-
 
 /*
 3.3 Pulpit - Widżet powiadomienia........................................................................
 .........................................................................................................
 */
 
-.app-notifications{
+.app-notifications {
   width: 55%;
   height: 177px;
   display: flex;
@@ -527,77 +513,77 @@ width: 16%;
   font-weight: 600;
 }
 
-.app-notifications-info{
+.app-notifications-info {
   height: 30%;
   background-color: white;
-  border: 1px dashed #3498DB;
+  border: 1px dashed #3498db;
   margin-bottom: 3.333%;
   display: flex;
   align-items: center;
   justify-items: center;
   position: relative;
 
-  .fa-info-circle{
+  .fa-info-circle {
     font-size: 2.5em;
     padding: 5px 15px;
-    color: #3498DB;
+    color: #3498db;
   }
 
-  p{
+  p {
     font-size: 18px;
-    color: #3498DB;
+    color: #3498db;
   }
 }
 
-.app-notifications-info:after{
+.app-notifications-info:after {
   content: "\f057";
   font-family: FontAwesome;
   display: block;
   position: absolute;
   width: 10px;
-  color: #3498DB;
+  color: #3498db;
   top: 8px;
   right: 18px;
   font-size: 1.5em;
 }
 
-.app-notifications-attention{
+.app-notifications-attention {
   height: 30%;
   background-color: white;
-  border: 1px dashed #FFB03B;
+  border: 1px dashed #ffb03b;
   margin-bottom: 3.333%;
   display: flex;
   align-items: center;
   justify-items: center;
   position: relative;
 
-  .fa-exclamation-circle{
+  .fa-exclamation-circle {
     font-size: 2.5em;
     padding: 5px 15px;
-    color: #FFB03B;
+    color: #ffb03b;
   }
 
-  p{
+  p {
     font-size: 18px;
-    color: #FFB03B;
+    color: #ffb03b;
     position: relative;
   }
 }
 
-.app-notifications-attention:after{
+.app-notifications-attention:after {
   content: "\f057";
   font-family: FontAwesome;
   display: block;
   position: absolute;
   width: 10px;
   height: 33%;
-  color: #FFB03B;
+  color: #ffb03b;
   top: 8px;
   right: 18px;
   font-size: 1.5em;
 }
 
-.app-notifications-hello{
+.app-notifications-hello {
   height: 30%;
   background-color: white;
   border: 1px dashed #468966;
@@ -606,19 +592,19 @@ width: 16%;
   justify-items: center;
   position: relative;
 
-  .fa-check-circle{
+  .fa-check-circle {
     font-size: 2.5em;
     padding: 5px 15px;
     color: #468966;
   }
 
-  p{
+  p {
     font-size: 18px;
     color: #468966;
   }
 }
 
-.app-notifications-hello:after{
+.app-notifications-hello:after {
   content: "\f057";
   font-family: FontAwesome;
   display: block;
@@ -631,3 +617,94 @@ width: 16%;
   font-size: 1.5em;
 }
 
+/*
+5.1 Wyświetlanie listy przepisów........................................................................
+.........................................................................................................
+*/
+
+.recipe-list {
+  color: $colorSidebar;
+  font-family: "Open Sans", sans-serif;
+  margin: 40px auto 0;
+  background-color: white;
+  border: 1px dashed $colorSidebar;
+  width: 96%;
+  height: 90%;
+  padding: 40px;
+}
+
+.recipe-list-header {
+  border-bottom: 2px solid $colorSidebar;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .recipe-list-title {
+    font-family: "Open Sans", sans-serif;
+    font-size: 35px;
+    color: #e58a20;
+    margin-bottom: 10px;
+  }
+}
+
+.add-recipe-btn {
+  top: 195px;
+  right: 68px;
+  font-size: 40px !important;
+  color: $colorSuccess !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.recipe-table{
+  border-collapse: collapse;
+}
+
+.recipe-table-head {
+  font-family: "Open Sans", sans-serif;
+  font-size: 35px;
+  color: #5b605f;
+}
+
+.recipe-row-table-header1 {
+  width: 5%;
+  margin: 0 auto;
+  padding: 10px 0 10px;
+}
+
+.recipe-row-table-header2 {
+  width: 20%;
+  margin: 0 auto;
+  padding: 10px 0 10px;
+}
+
+.recipe-row-table-header3 {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: start;
+  padding: 10px 0 10px;
+}
+
+.recipe-row-table-header4 {
+  width: 5%;
+  margin: 0 auto;
+  padding: 10px 0 10px;
+}
+
+.recipe-id{
+  color: $colorSidebar;
+  font-size: 20px;
+  text-align: center;
+}
+
+.recipe-name{
+  color: $colorSidebar;
+  font-size: 20px;
+  text-align: center;
+}
+
+.recipe-table-body td{
+  border-top: 1px solid $colorSidebar;
+  padding: 10px 0 10px;
+}
