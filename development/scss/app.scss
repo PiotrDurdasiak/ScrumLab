@@ -372,16 +372,7 @@ początek sekcji nowy przepis...................................................
     cursor: pointer;
   }
 }
-/// przyciski dodaj przepis i dodaj plan....................................................
 
-.addPlanImg {
-  width: 198px;
-  height: 177px;
-}
-
-.add {
-  float:left;
-}
 
 
 /*
@@ -509,6 +500,33 @@ width: 16%;
 
 
 
+/// przyciski dodaj przepis i dodaj plan....................................................
+.buttons-notifications {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  height: 30%;
+  width: 100%;
+}
+
+.add {
+  width: 40%;
+  height: 100%;
+
+}
+.addRecipe,
+.addPlan{
+  width: 45%;
+  height: 90%;
+  overflow: hidden;
+}
+
+.addPlanImg,
+.addRecipeImg {
+  width: 90%;
+  height: 100%;
+}
+
 
 
 
@@ -518,11 +536,10 @@ width: 16%;
 */
 
 .app-notifications{
-  width: 55%;
-  height: 177px;
+  width: 65%;
+  height: 90%;
   display: flex;
   flex-direction: column;
-  float: right;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
 }
@@ -598,6 +615,7 @@ width: 16%;
 }
 
 .app-notifications-hello{
+  padding:10px;
   height: 30%;
   background-color: white;
   border: 1px dashed #468966;
@@ -634,14 +652,17 @@ width: 16%;
 
 
 .table_container{
-  clear: both;
+  width: 100%;
+  height:65%;
   background-color: #fffffa;
   border: darkgray dashed 1px;
   padding: 10px;
   margin-bottom: 20px;
 }
 
+
 .table_title{
+
   color: #ff6500;
   font-size: 1.3rem;
   text-align: center;
@@ -650,11 +671,13 @@ width: 16%;
 
 .week_plan_table{
   width: 100%;
+  height: 75%;
   border: darkgray solid 1px;
   border-collapse: collapse;
   border-left: none;
   border-right: none;
 }
+
 
 .col_titles>th {
   text-align: left;
