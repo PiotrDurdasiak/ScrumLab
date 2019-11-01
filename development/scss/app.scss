@@ -763,10 +763,10 @@ początek sekcji nowy plan......................................................
   text-align: center;
 }
 
-.recipe-table-body td{
+.recipe-table-body td {
   border-top: 1px solid $colorSidebar;
   padding: 10px 0 10px;
-
+}
 
 .col_titles>th {
   text-align: left;
@@ -787,17 +787,20 @@ początek sekcji nowy plan......................................................
 
 }
 
-.under_table_bnt{
+.under_table_bnt {
   font-size: 1.1rem;
   margin: 10px;
   color: #FFB03B;
   display: flex;
   justify-content: space-between;
-  >a{
+
+  > a {
     text-decoration: none;
     color: #FFB03B;
-    :visited{
+
+    :visited {
       color: #FFB03B;
 
     }
   }
+}
