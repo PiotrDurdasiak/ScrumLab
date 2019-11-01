@@ -630,4 +630,63 @@ width: 16%;
   right: 18px;
   font-size: 1.5em;
 }
+//Plan tygodnia..................................................................................................................................................
 
+
+.table_container{
+  clear: both;
+  background-color: #fffffa;
+  border: darkgray dashed 1px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.table_title{
+  color: #ff6500;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.week_plan_table{
+  width: 100%;
+  border: darkgray solid 1px;
+  border-collapse: collapse;
+  border-left: none;
+  border-right: none;
+}
+
+.col_titles>th {
+  text-align: left;
+  font-size: 1.5rem;
+  border: 1px solid gray;
+  padding: 10px 15px;
+  border-left: none;
+  border-right: none;
+}
+
+.week_plan_table td{
+  font-size: 1.4rem;
+  color: gray;
+  border: 1px solid gray;
+  padding: 5px 10px;
+  border-left: none;
+  border-right: none;
+
+}
+
+.under_table_bnt{
+  font-size: 1.1rem;
+  margin: 10px;
+  color: #FFB03B;
+  display: flex;
+  justify-content: space-between;
+  >a{
+    text-decoration: none;
+    color: #FFB03B;
+    :visited{
+      color: #FFB03B;
+
+    }
+  }
+}
