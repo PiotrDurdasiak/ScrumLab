@@ -26,7 +26,7 @@ h1 {
 
 .main_header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #4a4a49;
 }
 .bottom_menu {
@@ -37,8 +37,8 @@ h1 {
 }
 
 .menu_links {
-  font-size: 1.5em;
-  padding: 1em;
+  font-size: 15px;
+  padding: 20px;
   text-decoration: none;
   color: #ffffff;
 }
@@ -48,8 +48,9 @@ h1 {
 }
 
 .logo_whole {
-  font-size: 2em;
+  font-size: 20px;
   text-decoration: none;
+  padding: 20px;
 }
 .logo_first_part {
   font-weight: 100;
