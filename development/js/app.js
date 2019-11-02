@@ -16,6 +16,7 @@ btn1.addEventListener("click", function() {
     document.querySelector(".add-recipe").classList.add("display-none");
     document.querySelector(".add-plan").classList.add("display-none");
     document.querySelector(".recipe-list").classList.add("display-none");
+    document.querySelector(".plans-showing-list").classList.add("display-none");
 })
 
 btn2.addEventListener("click", function() {
@@ -30,6 +31,7 @@ btn2.addEventListener("click", function() {
     document.querySelector(".add-recipe").classList.add("display-none");
     document.querySelector(".add-plan").classList.add("display-none");
     document.querySelector(".recipe-list").classList.remove("display-none");
+    document.querySelector(".plans-showing-list").classList.add("display-none");
 })
 
 btn3.addEventListener("click", function() {
@@ -39,6 +41,12 @@ btn3.addEventListener("click", function() {
     btn2.querySelector("i").classList.remove("arrow");
     btn1.classList.remove("border");
     btn1.querySelector("i").classList.remove("arrow");
+
+    document.querySelector(".task3-content").classList.add("display-none");
+    document.querySelector(".add-recipe").classList.add("display-none");
+    document.querySelector(".add-plan").classList.add("display-none");
+    document.querySelector(".recipe-list").classList.add("display-none");
+    document.querySelector(".plans-showing-list").classList.remove("display-none");
 
 })
 
