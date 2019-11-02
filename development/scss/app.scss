@@ -902,3 +902,19 @@ początek sekcji nowy plan......................................................
   border-top: 1px solid $colorSidebar;
   padding: 10px 0 10px;
 }
+
+.plans-showing-title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 30px;
+  color:#FFB03B;
+}
+
+.add-plan-btn {
+  top: 195px;
+  right: 68px;
+  font-size: 40px !important;
+  color: $colorSuccess !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
