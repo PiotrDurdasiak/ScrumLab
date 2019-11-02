@@ -235,7 +235,9 @@ addRecipe.addEventListener("click", function () {
 const addPlan=document.querySelector(".addPlan");
 addPlan.addEventListener("click", function () {
     document.querySelector(".add-plan").classList.remove("display-none");
-    document.querySelector(".task3-content").classList.add("display-none")
+    document.querySelector(".task3-content").classList.add("display-none");
+    document.querySelector(".plan-button").classList.remove("display-none");
+    document.querySelector(".plan-button-edit").classList.add("display-none");
 })
 
 // pole wyboru przepisu w sekcji nowy plan
@@ -605,6 +607,120 @@ for (let i=0;i<removePlanBtn.length;i++){
         }
     })
 }
+
+
+//edytowanie planu
+
+const editPlanBtn=document.querySelectorAll(".plans-showing-table tbody tr td .edit-icon");
+const saveEditButton=document.querySelector(".plan-button-edit");
+
+for(let i=0;i<editPlanBtn.length;i++){
+    editPlanBtn[i].addEventListener("click", function () {
+        document.querySelector(".add-plan").classList.remove("display-none");
+        document.querySelector(".plans-showing-list").classList.add("display-none");
+        document.querySelector(".plan-button").classList.add("display-none");
+        document.querySelector(".plan-button-edit").classList.remove("display-none");
+        const numberToEdit=editPlanBtn[i].parentElement.parentElement.querySelector(".plans-showing-id").innerHTML;
+        for(let i=0;i<plansShowingObjects.length;i++){
+            if(plansShowingObjects[i].id===parseFloat(numberToEdit)){
+
+                let planTitle=document.querySelector(".plan-name-input");
+                let planInfo=document.querySelector(".plan-text-input");
+                let planNumber=document.querySelector(".plan-number-input");
+                let planMonday=document.getElementsByClassName("recipe-pon");
+                let planTuesday=document.getElementsByClassName("recipe-wt");
+                let planWednesday=document.getElementsByClassName("recipe-sr");
+                let planThursday=document.getElementsByClassName("recipe-czw");
+                let planFriday=document.getElementsByClassName("recipe-pia");
+                let planSaturday=document.getElementsByClassName("recipe-so");
+                let planSunday=document.getElementsByClassName("recipe-nie");
+
+               planTitle.value=plansShowingObjects[i].title;
+                planInfo.value=plansShowingObjects[i].description;
+                planNumber.value=plansShowingObjects[i].weekNumber;
+
+                for (let j=0;j<planMonday.length;j++) {
+                    planMonday[j].value=plansShowingObjects[i].monday[j]
+                }
+                for (let j=0;j<planThursday.length;j++) {
+                    planTuesday[j].value = plansShowingObjects[i].tuesday[j]
+                }
+
+                for (let j=0;j<planWednesday.length;j++) {
+                    planWednesday[j].value = plansShowingObjects[i].wednesday[j]
+                }
+                for (let j=0;j<planThursday.length;j++) {
+                    planThursday[j].value = plansShowingObjects[i].thursday[j]
+                }
+                for (let j=0;j<planFriday.length;j++) {
+                    planFriday[j].value = plansShowingObjects[i].friday[j]
+                }
+                for (let j=0;j<planSaturday.length;j++) {
+                    planSaturday[j].value = plansShowingObjects[i].saturday[j]
+                }
+                for (let j=0;j<planSunday.length;j++) {
+                    planSunday[j].value = plansShowingObjects[i].sunday[j]
+                }
+
+                saveEditButton.addEventListener("click", function () {
+                    let x = JSON.parse(localStorage.getItem("plans"));
+
+                    x[i].title = planTitle.value;
+                    x[i].description=planInfo.value;
+                    x[i].weekNumber=planNumber.value;
+
+
+                    x[i].monday=[];
+                    for (let k=0;k<planMonday.length;k++) {
+                        x[i].monday.push(planMonday[k].value);
+                    }
+
+                    x[i].tuesday=[];
+                    for (let k=0;k<planTuesday.length;k++) {
+                        x[i].tuesday.push(planTuesday[k].value);
+                    }
+
+                    x[i].wednesday=[];
+                    for (let k=0;k<planWednesday.length;k++) {
+                        x[i].wednesday.push(planWednesday[k].value);
+                    }
+
+                    x[i].thursday=[];
+                    for (let k=0;k<planThursday.length;k++) {
+                        x[i].thursday.push(planThursday[k].value);
+                    }
+
+                    x[i].friday=[];
+                    for (let k=0;k<planFriday.length;k++) {
+                        x[i].friday.push(planFriday[k].value);
+                    }
+
+                    x[i].saturday=[];
+                    for (let k=0;k<planSaturday.length;k++) {
+                        x[i].saturday.push(planSaturday[k].value);
+                    }
+
+                    x[i].sunday=[];
+                    for (let k=0;k<planSunday.length;k++) {
+                        x[i].sunday.push(planSunday[k].value);
+                    }
+
+                    localStorage.setItem("plans", JSON.stringify(x));
+
+
+                    document.querySelector(".add-plan").classList.add("display-none");
+                    document.querySelector(".plans-showing-list").classList.remove("display-none");
+
+                   editPlanBtn[i].parentElement.parentElement.querySelectorAll("td")[1].innerText=planTitle.value;
+                    editPlanBtn[i].parentElement.parentElement.querySelectorAll("td")[2].innerText=planInfo.value;
+                    editPlanBtn[i].parentElement.parentElement.querySelectorAll("td")[3].innerText=planNumber.value;
+
+                })
+            }
+        }
+    })
+}
+
 
 
 
