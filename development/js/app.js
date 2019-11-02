@@ -492,3 +492,43 @@ prevButton.addEventListener("click", function () {
 
 
 
+// 8.1 Wyswietlanie listy planow
+
+const plansShowingObjects = JSON.parse(localStorage.getItem("plans"));
+const plansShowingTable = document.querySelector(".plans-showing-table-body");
+
+for (let i=0;i<plansShowingObjects.length;i++){
+
+    const tableTr = document.createElement("tr");
+    const tableId = document.createElement("td");
+    const tableName = document.createElement("td");
+    const tableText = document.createElement("td");
+    const tableWeekNumber = document.createElement("td");
+    const tableActions = document.createElement("td");
+    const removeButton = document.createElement("i");
+    const editButton = document.createElement("i");
+
+    plansShowingTable.appendChild(tableTr);
+    tableTr.appendChild(tableId);
+    tableTr.appendChild(tableName);
+    tableTr.appendChild(tableText);
+    tableTr.appendChild(tableWeekNumber);
+    tableTr.appendChild(tableActions);
+    tableActions.appendChild(removeButton);
+    tableActions.appendChild(editButton);
+
+    tableId.innerText = i + 1;
+    tableName.innerText = plansShowingObjects[i].title;
+    tableText.innerText = plansShowingObjects[i].description;
+    tableWeekNumber.innerText = plansShowingObjects[i].weekNumber;
+
+    tableId.classList.add("plans-showing-id");
+    tableName.classList.add("plans-showing-name");
+
+    editButton.classList.add("far");
+    editButton.classList.add("fa-edit");
+    editButton.classList.add("edit-icon");
+    removeButton.classList.add("far");
+    removeButton.classList.add("fa-trash-alt");
+    removeButton.classList.add("bin-icon");
+}

@@ -804,3 +804,101 @@ początek sekcji nowy plan......................................................
     }
   }
 }
+
+/*
+8.1 Wyświetlanie listy planow........................................................................
+.........................................................................................................
+*/
+
+.plans-showing-list {
+  color: $colorSidebar;
+  font-family: "Open Sans", sans-serif;
+  margin: 40px auto 0;
+  background-color: white;
+  border: 1px dashed $colorSidebar;
+  width: 96%;
+  height: 90%;
+  padding: 40px;
+}
+
+.plans-showing-list-header {
+  border-bottom: 2px solid $colorSidebar;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .plans-showing-list-title {
+    font-family: "Open Sans", sans-serif;
+    font-size: 35px;
+    color: #e58a20;
+    margin-bottom: 10px;
+  }
+}
+
+.add-plans-showing-btn {
+  top: 195px;
+  right: 68px;
+  font-size: 40px !important;
+  color: $colorSuccess !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.plans-showing-table{
+  border-collapse: collapse;
+}
+
+.plans-showing-table-head {
+  font-family: "Open Sans", sans-serif;
+  font-size: 35px;
+  color: #5b605f;
+}
+
+.plans-showing-row-table-header1 {
+  width: 5%;
+  margin: 0 auto;
+  padding: 10px 0 10px;
+}
+
+.plans-showing-row-table-header2 {
+  width: 20%;
+  margin: 0 auto;
+  padding: 10px 0 10px;
+}
+
+.plans-showing-row-table-header3 {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: start;
+  padding: 10px 0 10px;
+}
+
+.plans-showing-row-table-header4 {
+  width: 10%;
+  margin: 0 auto;
+  padding: 5px 0 5px;
+}
+
+.plans-showing-row-table-header5 {
+  width: 5%;
+  margin: 0 auto;
+  padding: 5px 0 5px;
+}
+
+.plans-showing-id{
+  color: $colorSidebar;
+  font-size: 20px;
+  text-align: center;
+}
+
+.plans-showing-name{
+  color: $colorSidebar;
+  font-size: 20px;
+  text-align: center;
+}
+
+.plans-showing-table-body td {
+  border-top: 1px solid $colorSidebar;
+  padding: 10px 0 10px;
+}
