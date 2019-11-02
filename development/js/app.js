@@ -562,3 +562,55 @@ addRecipeButton.addEventListener("click", function () {
 })
 
 
+// przycisk kasujący przepis
+const removeRecipeBtn=document.querySelectorAll(".recipe-table tbody tr td .bin-icon");
+for (let i=0;i<removeRecipeBtn.length;i++){
+    removeRecipeBtn[i].addEventListener("click", function () {
+
+    const numberToDelete=removeRecipeBtn[i].parentElement.parentElement.querySelector(".recipe-id").innerHTML;
+    const child=removeRecipeBtn[i].parentElement.parentElement
+   child.parentElement.removeChild(child);
+    for(let i=0;i<recipeObject2.length;i++){
+        if(recipeObject2[i].id===parseFloat(numberToDelete)){
+
+            let x = JSON.parse(localStorage.getItem("recipes"));
+            x.splice(i,1);
+            localStorage.setItem("recipes", JSON.stringify(x));
+
+
+        }
+    }
+    })
+}
+
+//przycisk kasujący plan
+
+
+const removePlanBtn=document.querySelectorAll(".plans-showing-table tbody tr td .bin-icon");
+for (let i=0;i<removePlanBtn.length;i++){
+    removePlanBtn[i].addEventListener("click", function () {
+
+        const numberToDelete=removePlanBtn[i].parentElement.parentElement.querySelector(".plans-showing-id").innerHTML;
+        const child=removePlanBtn[i].parentElement.parentElement
+        child.parentElement.removeChild(child);
+        for(let i=0;i<plansShowingObjects.length;i++){
+            if(plansShowingObjects[i].id===parseFloat(numberToDelete)){
+
+               let x = JSON.parse(localStorage.getItem("plans"));
+                x.splice(i,1);
+                localStorage.setItem("plans", JSON.stringify(x));
+
+
+            }
+        }
+    })
+}
+
+
+
+
+
+
+
+
+
