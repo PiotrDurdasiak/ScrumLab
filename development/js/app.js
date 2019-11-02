@@ -184,6 +184,7 @@ let allRecipes=[];
 closeSaveBtn.addEventListener("click", function(e) {
     e.preventDefault();
 
+
     const instList=document.querySelector(".instruction-list").getElementsByTagName("li");
     for(let i=0; i<instList.length;i++){
         newRecipe.recipeInstructions.push(instList[i].innerText);
@@ -229,6 +230,12 @@ addRecipe.addEventListener("click", function () {
     document.querySelector(".add-recipe").classList.remove("display-none");
     document.querySelector(".task3-content").classList.add("display-none")
     document.querySelector(".add-plan").classList.add("display-none");
+    document.querySelector(".recipe-button").classList.remove("display-none");
+    document.querySelector(".recipe-button2").classList.add("display-none");
+
+
+
+
 })
 
 //przycisk dodaj plan
@@ -714,15 +721,159 @@ for(let i=0;i<editPlanBtn.length;i++){
                    editPlanBtn[i].parentElement.parentElement.querySelectorAll("td")[1].innerText=planTitle.value;
                     editPlanBtn[i].parentElement.parentElement.querySelectorAll("td")[2].innerText=planInfo.value;
                     editPlanBtn[i].parentElement.parentElement.querySelectorAll("td")[3].innerText=planNumber.value;
-
+                    planTitle.value="";
+                    planInfo.value="";
+                    planNumber.value="";
                 })
+
             }
         }
     })
 }
 
+// edytowanie przepisu
 
 
+const editRecipeBtn=document.querySelectorAll(".recipe-table tbody tr td .edit-icon");
+const editRecipeButton=document.querySelector(".recipe-button2");
+
+for (let i=0; i<editRecipeBtn.length;i++){
+    editRecipeBtn[i].addEventListener("click", function () {
+        let title=document.querySelector(".recipe-name").querySelector("input");
+        let opis=document.querySelector(".recipe-text").querySelector("textarea");
+
+
+        document.querySelector(".add-recipe").classList.remove("display-none");
+        document.querySelector(".recipe-list").classList.add("display-none");
+        document.querySelector(".recipe-button").classList.add("display-none");
+        document.querySelector(".recipe-button2").classList.remove("display-none");
+        const numberToEdit=editRecipeBtn[i].parentElement.parentElement.querySelector(".recipe-id").innerHTML;
+        for(let i=0;i<recipeObject2.length;i++){
+            if(recipeObject2[i].id===parseFloat(numberToEdit)){
+
+
+                title.value=recipeObject2[i].recipeTitle;
+                opis.value=recipeObject2[i].recipeText;
+
+
+
+                const instructionPlace= document.querySelector(".instruction-list");
+
+                for(let j =0;j<recipeObject2[i].recipeInstructions.length;j++){
+                    const newInstruction= document.createElement("li");
+                    const newInstructionText =document.createElement("span");
+                    const removeButton = document.createElement("i");
+                    const editButton = document.createElement("i");
+
+                    instructionPlace.appendChild(newInstruction);
+                    newInstruction.appendChild(newInstructionText);
+                    newInstruction.appendChild(removeButton);
+                    newInstruction.appendChild(editButton);
+
+                    newInstructionText.innerText=recipeObject2[i].recipeInstructions[j];
+                    editButton.classList.add("far");
+                    editButton.classList.add("fa-edit");
+                    editButton.classList.add("edit-icon");
+                    removeButton.classList.add("far");
+                    removeButton.classList.add("fa-trash-alt");
+                    removeButton.classList.add("bin-icon");
+
+                    removeButton.addEventListener("click", function () {
+                        removeButton.parentElement.parentElement.removeChild(newInstruction);
+                    })
+
+                    editButton.addEventListener("click", function () {
+                        newInstructionText.innerText="";
+                        const editing=prompt("podaj nową instrukcję");
+                        newInstructionText.innerText=editing;
+                    })
+                }
+
+
+
+                const componentsPlace= document.querySelector(".components-list");
+
+                for(let k=0;k<recipeObject2[i].recipeIngredients.length;k++) {
+                    const newComponent= document.createElement("li");
+                    const newComponentText =document.createElement("span");
+                    const removeButton = document.createElement("i");
+                    const editButton = document.createElement("i");
+
+                    componentsPlace.appendChild(newComponent);
+                    newComponent.appendChild(newComponentText);
+                    newComponent.appendChild(removeButton);
+                    newComponent.appendChild(editButton);
+
+                    newComponentText.innerText=recipeObject2[i].recipeIngredients[k];
+
+                    editButton.classList.add("far");
+                    editButton.classList.add("fa-edit");
+                    editButton.classList.add("edit-icon");
+                    removeButton.classList.add("far");
+                    removeButton.classList.add("fa-trash-alt");
+                    removeButton.classList.add("bin-icon");
+
+                    removeButton.addEventListener("click", function () {
+                        removeButton.parentElement.parentElement.removeChild(newComponent);
+                    })
+
+                    editButton.addEventListener("click", function () {
+                        newComponentText.innerText="";
+                        const editing=prompt("podaj nowy składnik");
+                        newComponentText.innerText=editing;
+                    })
+                }
+
+
+
+                editRecipeButton.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    let x = JSON.parse(localStorage.getItem("recipes"));
+
+
+                    const instList=document.querySelector(".instruction-list").getElementsByTagName("li");
+
+                    x[i].recipeInstructions=[];
+                    for(let l=0; l<instList.length;l++){
+                        x[i].recipeInstructions.push(instList[l].innerText);
+                    }
+
+                    const compList=document.querySelector(".components-list").getElementsByTagName("li");
+                    x[i].recipeIngredients=[];
+                    for(let l=0; l<compList.length;l++){
+                        x[i].recipeIngredients.push(compList[l].innerText);
+                    }
+
+
+                    x[i].recipeTitle = title.value;
+                    x[i].recipeText=opis.value;
+
+                    localStorage.setItem("recipes", JSON.stringify(x));
+
+                    document.querySelector(".add-recipe").classList.add("display-none");
+                    document.querySelector(".recipe-list").classList.remove("display-none");
+
+
+                    editRecipeBtn[i].parentElement.parentElement.querySelectorAll("td")[1].innerText=title.value;
+                    editRecipeBtn[i].parentElement.parentElement.querySelectorAll("td")[2].innerText=opis.value;
+
+
+
+                    location.reload();
+
+
+                    document.querySelector(".add-recipe").classList.remove("display-none");
+                    document.querySelector(".recipe-list").classList.add("display-none");
+                    document.querySelector(".recipe-button").classList.add("display-none");
+                    document.querySelector(".recipe-button2").classList.remove("display-none");
+                    window.location = document.URL;
+
+                })
+
+            }
+        }
+})
+}
 
 
 
