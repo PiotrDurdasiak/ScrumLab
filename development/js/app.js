@@ -350,7 +350,7 @@ function savePlanToLocalStorage(newObject) {
 }
 
 
-console.log(planThursday.length);
+
 
 
 // zmiana na zakładkę - przepisy
@@ -376,7 +376,7 @@ for (let i=0;i<recipeObject2.length;i++){
     tableActions.appendChild(removeButton);
     tableActions.appendChild(editButton);
 
-    tableId.innerText = "1";
+    tableId.innerText = recipeObject2[i].id;
     tableName.innerText = recipeObject2[i].recipeTitle;
     tableText.innerText = recipeObject2[i].recipeText;
 
@@ -425,7 +425,7 @@ for (let i=0;i<planObject.length;i++){
     }
 }
 
-console.log(actualPlanNumber);
+
 
 document.querySelector(".table_title").innerHTML="Twój plan na "+actualPlanNumber.weekNumber+" tydzień";
  for (let i=0; i<actualPlanNumber.monday.length;i++){
@@ -448,7 +448,6 @@ const nextButton =document.querySelector(".under_table_bnt2");
              break;
          } else {
          if (planObject[i].id === actualPlan.id){
-             console.log(planObject[i+1]);
              actualPlan=planObject[i+1];
              document.querySelector(".table_title").innerHTML="Twój plan na "+actualPlan.weekNumber+" tydzień";
              for (let i=0; i<actualPlanNumber.monday.length;i++){
@@ -475,7 +474,6 @@ prevButton.addEventListener("click", function () {
             break;
         } else {
         if (planObject[i].id === actualPlan.id){
-            console.log(planObject[i-1]);
             actualPlan=planObject[i-1];
             document.querySelector(".table_title").innerHTML="Twój plan na "+actualPlan.weekNumber+" tydzień";
             for (let i=0; i<actualPlanNumber.monday.length;i++){
@@ -525,7 +523,7 @@ for (let i=0;i<plansShowingObjects.length;i++){
     tableActions.appendChild(removeButton);
     tableActions.appendChild(editButton);
 
-    tableId.innerText = i + 1;
+    tableId.innerText =plansShowingObjects[i].id;
     tableName.innerText = plansShowingObjects[i].title;
     tableText.innerText = plansShowingObjects[i].description;
     tableWeekNumber.innerText = plansShowingObjects[i].weekNumber;
@@ -562,3 +560,5 @@ addRecipeButton.addEventListener("click", function () {
     document.querySelector(".recipe-list").classList.add("display-none");
 
 })
+
+
