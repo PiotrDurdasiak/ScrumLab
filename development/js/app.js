@@ -220,7 +220,7 @@ function saveRecipeToLocalStorage(newObject) {
         dataFromLocalStorage.push(newObject);
         localStorage.setItem("recipes", JSON.stringify(dataFromLocalStorage));
     }
-    alert("Przepis zapisany do localStorage");
+
 }
 
 // przycisk dodaj przepis
@@ -346,7 +346,7 @@ function savePlanToLocalStorage(newObject) {
         dataFromLocalStorage.push(newObject);
         localStorage.setItem("plans", JSON.stringify(dataFromLocalStorage));
     }
-    alert("plan zapisany do localStorage");
+
 }
 
 
@@ -540,3 +540,25 @@ for (let i=0;i<plansShowingObjects.length;i++){
     removeButton.classList.add("fa-trash-alt");
     removeButton.classList.add("bin-icon");
 }
+
+const addPlanButton=document.querySelector(".add-plan-btn");
+
+addPlanButton.addEventListener("click", function () {
+    document.querySelector(".plans-showing-list").classList.add("display-none");
+    document.querySelector(".add-plan").classList.remove("display-none");
+    document.querySelector(".add-recipe").classList.add("display-none");
+    document.querySelector(".task3-content").classList.add("display-none");
+
+})
+
+
+const addRecipeButton=document.querySelector(".add-recipe-btn");
+
+addRecipeButton.addEventListener("click", function () {
+    document.querySelector(".plans-showing-list").classList.add("display-none");
+    document.querySelector(".add-plan").classList.add("display-none");
+    document.querySelector(".add-recipe").classList.remove("display-none");
+    document.querySelector(".task3-content").classList.add("display-none");
+    document.querySelector(".recipe-list").classList.add("display-none");
+
+})

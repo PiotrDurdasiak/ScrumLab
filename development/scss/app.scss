@@ -717,12 +717,44 @@ początek sekcji nowy plan......................................................
 
 .recipe-table{
   border-collapse: collapse;
+  width: 100%;
 }
 
 .recipe-table-head {
   font-family: "Open Sans", sans-serif;
   font-size: 35px;
   color: #5b605f;
+  display:table;
+  width:90%;
+  table-layout:fixed;
+}
+
+.recipe-table-body {
+  display:block;
+  height:60vh;
+  overflow:auto;
+
+  tr{
+    display:table;
+    width:100%;
+    table-layout:fixed;
+  }
+  td{
+    text-align: left;
+  }
+  td:nth-of-type(1){
+    width: 5%;
+    text-align: center;
+  }
+  td:nth-of-type(2){
+    width: 25%;
+  }
+  td:nth-of-type(3){
+    width: 60%;
+  }
+  td:nth-of-type(4){
+    width: 10%;
+  }
 }
 
 .recipe-row-table-header1 {
@@ -817,7 +849,7 @@ początek sekcji nowy plan......................................................
   background-color: white;
   border: 1px dashed $colorSidebar;
   width: 96%;
-  height: 90%;
+  height: 95%;
   padding: 40px;
 }
 
@@ -846,12 +878,47 @@ początek sekcji nowy plan......................................................
 
 .plans-showing-table{
   border-collapse: collapse;
+  width: 100%;
 }
 
 .plans-showing-table-head {
   font-family: "Open Sans", sans-serif;
   font-size: 35px;
   color: #5b605f;
+  display:table;
+  width:97%;
+  table-layout:fixed;
+}
+
+.plans-showing-table-body {
+  display:block;
+  height:60vh;
+  overflow:auto;
+
+  tr{
+    display:table;
+    width:100%;
+    table-layout:fixed;
+  }
+  td{
+    text-align: left;
+  }
+  td:nth-of-type(1){
+    width: 5%;
+    text-align: center;
+  }
+  td:nth-of-type(2){
+    width: 20%;
+  }
+  td:nth-of-type(3){
+    width: 60%;
+  }
+  td:nth-of-type(4){
+    width: 15%;
+  }
+  td:nth-of-type(5){
+    width: 5%;
+  }
 }
 
 .plans-showing-row-table-header1 {
@@ -868,16 +935,17 @@ początek sekcji nowy plan......................................................
 
 .plans-showing-row-table-header3 {
   width: 60%;
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   justify-content: start;
   padding: 10px 0 10px;
 }
 
 .plans-showing-row-table-header4 {
-  width: 10%;
+  width: 15%;
   margin: 0 auto;
   padding: 5px 0 5px;
+  text-align:left;
 }
 
 .plans-showing-row-table-header5 {
