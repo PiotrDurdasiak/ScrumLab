@@ -253,13 +253,14 @@ const planRecipePlace=document.getElementsByClassName("recipe-select");
 let recipeObject=JSON.parse(localStorage.getItem("recipes"));
 
 for (let i=0; i<planRecipePlace.length;i++){
-
+if(recipeObject){
     for (let j=0; j<recipeObject.length; j++)
     {
         const recipeItem = document.createElement("option");
         planRecipePlace[i].appendChild(recipeItem);
         recipeItem.innerText=recipeObject[j].recipeTitle;
     }
+}
 }
 
 // guzik zapisz i zamknij plus dodawanie nowego obiektu plan do localstorage
@@ -366,38 +367,39 @@ function savePlanToLocalStorage(newObject) {
 
 const recipeObject2 = JSON.parse(localStorage.getItem("recipes"));
 const recipeTable = document.querySelector(".recipe-table-body");
+if (recipeObject2) {
+    for (let i = 0; i < recipeObject2.length; i++) {
 
-for (let i=0;i<recipeObject2.length;i++){
+        const tableTr = document.createElement("tr");
+        const tableId = document.createElement("td");
+        const tableName = document.createElement("td");
+        const tableText = document.createElement("td");
+        const tableActions = document.createElement("td");
+        const removeButton = document.createElement("i");
+        const editButton = document.createElement("i");
 
-    const tableTr = document.createElement("tr");
-    const tableId = document.createElement("td");
-    const tableName = document.createElement("td");
-    const tableText = document.createElement("td");
-    const tableActions = document.createElement("td");
-    const removeButton = document.createElement("i");
-    const editButton = document.createElement("i");
+        recipeTable.appendChild(tableTr);
+        tableTr.appendChild(tableId);
+        tableTr.appendChild(tableName);
+        tableTr.appendChild(tableText);
+        tableTr.appendChild(tableActions);
+        tableActions.appendChild(removeButton);
+        tableActions.appendChild(editButton);
 
-    recipeTable.appendChild(tableTr);
-    tableTr.appendChild(tableId);
-    tableTr.appendChild(tableName);
-    tableTr.appendChild(tableText);
-    tableTr.appendChild(tableActions);
-    tableActions.appendChild(removeButton);
-    tableActions.appendChild(editButton);
+        tableId.innerText = recipeObject2[i].id;
+        tableName.innerText = recipeObject2[i].recipeTitle;
+        tableText.innerText = recipeObject2[i].recipeText;
 
-    tableId.innerText = recipeObject2[i].id;
-    tableName.innerText = recipeObject2[i].recipeTitle;
-    tableText.innerText = recipeObject2[i].recipeText;
+        tableId.classList.add("recipe-id");
+        tableName.classList.add("recipe-name");
 
-    tableId.classList.add("recipe-id");
-    tableName.classList.add("recipe-name");
-
-    editButton.classList.add("far");
-    editButton.classList.add("fa-edit");
-    editButton.classList.add("edit-icon");
-    removeButton.classList.add("far");
-    removeButton.classList.add("fa-trash-alt");
-    removeButton.classList.add("bin-icon");
+        editButton.classList.add("far");
+        editButton.classList.add("fa-edit");
+        editButton.classList.add("edit-icon");
+        removeButton.classList.add("far");
+        removeButton.classList.add("fa-trash-alt");
+        removeButton.classList.add("bin-icon");
+    }
 }
 
 
@@ -421,32 +423,38 @@ const planObject = dataFromLocalStorage = JSON.parse(localStorage.getItem("plans
 
 let weekNumberArray=[];
 let actualPlanNumber;
+if(planObject){
 for (let i=0;i<planObject.length;i++){
     weekNumberArray.push(parseFloat(planObject[i].weekNumber));
 }
+}
+if(weekNumberArray>0) {
+    let closest = weekNumberArray.reduce(function (prev, curr) {
+        return (Math.abs(curr - actualWeekNumber) < Math.abs(prev - actualWeekNumber) ? curr : prev);
+    })
+}
 
-let closest = weekNumberArray.reduce(function(prev, curr) {
-    return (Math.abs(curr - actualWeekNumber) < Math.abs(prev - actualWeekNumber) ? curr : prev);})
-
-for (let i=0;i<planObject.length;i++){
-    if (parseFloat(planObject[i].weekNumber) === closest){
-        actualPlanNumber=planObject[i];
+if(planObject) {
+    for (let i = 0; i < planObject.length; i++) {
+        if (parseFloat(planObject[i].weekNumber) === closest) {
+            actualPlanNumber = planObject[i];
+        }
     }
 }
 
 
-
-document.querySelector(".table_title").innerHTML="Twój plan na "+actualPlanNumber.weekNumber+" tydzień";
- for (let i=0; i<actualPlanNumber.monday.length;i++){
-     document.querySelectorAll(".poniedzialek")[i].innerHTML=actualPlanNumber.monday[i];
-     document.querySelectorAll(".wtorek")[i].innerHTML=actualPlanNumber.tuesday[i];
-     document.querySelectorAll(".sroda")[i].innerHTML=actualPlanNumber.wednesday[i];
-     document.querySelectorAll(".czwartek")[i].innerHTML=actualPlanNumber.thursday[i];
-     document.querySelectorAll(".piatek")[i].innerHTML=actualPlanNumber.friday[i];
-     document.querySelectorAll(".sobota")[i].innerHTML=actualPlanNumber.saturday[i];
-     document.querySelectorAll(".niedziela")[i].innerHTML=actualPlanNumber.sunday[i];
- }
-
+if(actualPlanNumber) {
+    document.querySelector(".table_title").innerHTML = "Twój plan na " + actualPlanNumber.weekNumber + " tydzień";
+    for (let i = 0; i < actualPlanNumber.monday.length; i++) {
+        document.querySelectorAll(".poniedzialek")[i].innerHTML = actualPlanNumber.monday[i];
+        document.querySelectorAll(".wtorek")[i].innerHTML = actualPlanNumber.tuesday[i];
+        document.querySelectorAll(".sroda")[i].innerHTML = actualPlanNumber.wednesday[i];
+        document.querySelectorAll(".czwartek")[i].innerHTML = actualPlanNumber.thursday[i];
+        document.querySelectorAll(".piatek")[i].innerHTML = actualPlanNumber.friday[i];
+        document.querySelectorAll(".sobota")[i].innerHTML = actualPlanNumber.saturday[i];
+        document.querySelectorAll(".niedziela")[i].innerHTML = actualPlanNumber.sunday[i];
+    }
+}
  //przycisk pokazujący następny tydzień
 const nextButton =document.querySelector(".under_table_bnt2");
  let actualPlan=actualPlanNumber;
@@ -511,41 +519,42 @@ prevButton.addEventListener("click", function () {
 
 const plansShowingObjects = JSON.parse(localStorage.getItem("plans"));
 const plansShowingTable = document.querySelector(".plans-showing-table-body");
+if(plansShowingObjects) {
+    for (let i = 0; i < plansShowingObjects.length; i++) {
 
-for (let i=0;i<plansShowingObjects.length;i++){
+        const tableTr = document.createElement("tr");
+        const tableId = document.createElement("td");
+        const tableName = document.createElement("td");
+        const tableText = document.createElement("td");
+        const tableWeekNumber = document.createElement("td");
+        const tableActions = document.createElement("td");
+        const removeButton = document.createElement("i");
+        const editButton = document.createElement("i");
 
-    const tableTr = document.createElement("tr");
-    const tableId = document.createElement("td");
-    const tableName = document.createElement("td");
-    const tableText = document.createElement("td");
-    const tableWeekNumber = document.createElement("td");
-    const tableActions = document.createElement("td");
-    const removeButton = document.createElement("i");
-    const editButton = document.createElement("i");
+        plansShowingTable.appendChild(tableTr);
+        tableTr.appendChild(tableId);
+        tableTr.appendChild(tableName);
+        tableTr.appendChild(tableText);
+        tableTr.appendChild(tableWeekNumber);
+        tableTr.appendChild(tableActions);
+        tableActions.appendChild(removeButton);
+        tableActions.appendChild(editButton);
 
-    plansShowingTable.appendChild(tableTr);
-    tableTr.appendChild(tableId);
-    tableTr.appendChild(tableName);
-    tableTr.appendChild(tableText);
-    tableTr.appendChild(tableWeekNumber);
-    tableTr.appendChild(tableActions);
-    tableActions.appendChild(removeButton);
-    tableActions.appendChild(editButton);
+        tableId.innerText = plansShowingObjects[i].id;
+        tableName.innerText = plansShowingObjects[i].title;
+        tableText.innerText = plansShowingObjects[i].description;
+        tableWeekNumber.innerText = plansShowingObjects[i].weekNumber;
 
-    tableId.innerText =plansShowingObjects[i].id;
-    tableName.innerText = plansShowingObjects[i].title;
-    tableText.innerText = plansShowingObjects[i].description;
-    tableWeekNumber.innerText = plansShowingObjects[i].weekNumber;
+        tableId.classList.add("plans-showing-id");
+        tableName.classList.add("plans-showing-name");
 
-    tableId.classList.add("plans-showing-id");
-    tableName.classList.add("plans-showing-name");
-
-    editButton.classList.add("far");
-    editButton.classList.add("fa-edit");
-    editButton.classList.add("edit-icon");
-    removeButton.classList.add("far");
-    removeButton.classList.add("fa-trash-alt");
-    removeButton.classList.add("bin-icon");
+        editButton.classList.add("far");
+        editButton.classList.add("fa-edit");
+        editButton.classList.add("edit-icon");
+        removeButton.classList.add("far");
+        removeButton.classList.add("fa-trash-alt");
+        removeButton.classList.add("bin-icon");
+    }
 }
 
 const addPlanButton=document.querySelector(".add-plan-btn");
